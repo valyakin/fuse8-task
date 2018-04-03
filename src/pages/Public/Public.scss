@@ -1,0 +1,7 @@
+@import '~src/styles/mixins';
+@import '~src/styles/variables';
+
+.public-page {
+  @include flex(row, center, center);
+  height: 100%;
+}

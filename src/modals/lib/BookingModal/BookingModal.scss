@@ -1,0 +1,14 @@
+@import '~src/styles/mixins';
+@import '~src/styles/variables';
+
+.base-modal {
+  width: 20rem;
+  height: 20rem;
+  background-color: $white;
+  box-sizing: border-box;
+  > img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}

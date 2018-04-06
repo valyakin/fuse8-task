@@ -1,0 +1,71 @@
+@import '~src/styles/mixins';
+@import '~src/styles/variables';
+
+.select-item {
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  &-selection {
+    @include font(1rem, $color: $pale-black);
+    @include box($greyish);
+    @include flex(row, flex-start, flex-end);
+    color: $pale-black;
+    background-color: $white;
+    padding: auto;
+    padding-bottom: .75rem;
+    padding-left: calc(1.25rem - 3px);
+  }
+  &-label {
+    @include position(absolute, 0, 0, 0, 0);
+    @include font(1rem, 800, $grey, 1rem);
+    @include flex(column, center, flex-start);
+    margin-left: 1.25rem;
+    user-select: none;
+    transition: all .2s;
+    &.not-empty {
+      transform: translateY(-.75rem);
+      font-size: .75rem;
+    }
+  }
+  &-dropdown {
+    @include position(absolute, calc(100% - 3px), $left: 0);
+    width: 100%;
+    opacity: 1;
+    transition: all .2s;
+    z-index: 1;
+  }
+  &-arrow {
+    @include position(absolute, 0, 1.5rem, 0);
+    margin: auto;
+    width: .75rem;
+    height: .75rem;
+    object-fit: contain;
+    transition: transform .2s;
+    &.with-dropdown {
+      transform: rotate(180deg);
+    }
+  }
+  &-error {
+    @include font(.75rem, 600, $pale-red);
+    @include position(absolute, 100%, auto, 0);
+    transition: all .2s;
+    opacity: 1;
+  }
+  &-state-icon {
+    @include position(absolute, 0, -1.5rem, 0);
+    margin: auto;
+    width: 1.125rem;
+    height: 1.125rem;
+    object-fit: contain;
+  }
+}
+
+.error-enter, .error-leave-to {
+  opacity: 0;
+  transform: translateY(-1rem);
+}
+
+.fade-enter, .fade-leave-to  {
+  transform: translateY(-2rem);
+  opacity: 0;
+}

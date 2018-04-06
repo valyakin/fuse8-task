@@ -1,0 +1,9 @@
+<div class="input-item">
+  <input :id="inputId" :value="value" @input="$emit('input', $event.target.value)">
+  <label :class="{'not-empty':value}" :for="inputId">{{labelStr}}</label>
+  <transition name="error">
+    <span class="input-item-error" v-if="error">{{error}}</span>
+  </transition>
+  <img v-if="error" class="input-item-state-icon" src="static/img/icon-invalid.png">
+  <img v-if="valid" class="input-item-state-icon" src="static/img/icon-valid.png">
+</div>

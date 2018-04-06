@@ -1,0 +1,14 @@
+<div class="root-select-dropdown">
+  <div class="select-dropdown">
+    <div class="select-dropdown-selector">
+      <div class="select-dropdown-option" v-for="option in options" :key="option.key">
+        <input type="radio" :id="option.key" name="select" :value="option.key" @click.stop="select">
+        <label :for="option.key">
+          <div class="select-dropdown-option-label">
+            {{option.label}}
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,16 @@
+@import '~src/styles/mixins';
 @import '~src/styles/variables';
 
 .button-item {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 8px;
-  background-color: $primary;
-  color: $white;
-  text-align: center;
+  @include flex-center();
+  @include font(.875rem, 800, $brownish-grey, 1);
   cursor: pointer;
   user-select: none;
+  padding: 1rem 2rem;
+  border: solid 3px $grey;
+  background-color: $white;
   &:hover {
-    background-color: $secondary;
+    // border-color: $brownish-grey;
+    color: $black;
   }
 }

@@ -1,0 +1,34 @@
+@import '~src/styles/mixins';
+@import '~src/styles/variables';
+
+.root-select-dropdown {
+  width: 100%;
+  border: solid 3px $greyish;
+  border-top: none;
+  background-color: $white;
+  overflow: hidden;
+  .select-dropdown  {
+    &-option {
+      > input {
+        display: none;
+      }
+      &-label {
+        cursor: pointer;
+        user-select: none;
+        color: $brownish-grey;
+        text-align: center;
+        padding: 1rem;
+        &:last-child {
+          padding-bottom: 1.25rem;
+        }
+        &:first-child {
+          padding-top: 1.25rem;
+        }
+        &:hover {
+          background-color: $greyish;
+          color: $black;
+        }
+      }
+    }
+  }
+}

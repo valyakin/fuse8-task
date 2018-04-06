@@ -1,0 +1,15 @@
+<div class="root-date-item" tabindex="100" @blur="shown=false">
+  <div class="date-item" @click="shown=!shown">
+    <div class="date-item-label" :class="{'not-empty':value}">{{labelStr}}</div>
+    <div class="date-item-date">{{dateStr}}</div>
+  </div>
+  <transition name="fade">
+    <date-picker class="date-item-picker" v-if="shown" :inline="true" v-model="date" @input="dateChanged"></date-picker>
+  </transition>
+  <img class="date-item-arrow" :class="{'with-dropdown' : shown}" src="static/img/icon-arrow.png">
+  <transition name="error">
+    <span class="root-date-item-error" v-if="error">{{error}}</span>
+  </transition>
+  <img v-if="error" class="root-date-item-state-icon" src="static/img/icon-invalid.png">
+  <img v-if="valid" class="root-date-item-state-icon" src="static/img/icon-valid.png">
+</div>

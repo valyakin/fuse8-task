@@ -2,6 +2,8 @@
 @import '~src/styles/variables';
 
 .public-page {
-  @include flex(row, center, center);
   height: 100%;
+  @include flex-center();
+  .content {
+  }
 }

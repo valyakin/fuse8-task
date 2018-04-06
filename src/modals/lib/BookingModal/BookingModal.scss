@@ -1,14 +1,136 @@
 @import '~src/styles/mixins';
 @import '~src/styles/variables';
 
-.base-modal {
-  width: 20rem;
-  height: 20rem;
-  background-color: $white;
-  box-sizing: border-box;
-  > img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+.root-booking-modal {
+  @include position(relative);
+  padding: 2.5rem;
+  @include ie-only(){
+    padding: 0;
+  }
+  max-width: $max-width;
+  min-width: $min-width;
+  z-index: 5000;
+  .booking-modal {
+    &-slogan {
+      @include font(1.125rem, 800, $pale-red);
+      margin-bottom: 1.125rem;
+    }
+    &-header {
+      @include font(3rem, 800, $white, 1);
+      margin-bottom: 1.5rem;
+    }
+    .booking-form {
+      @include flex(column, flex-start, stretch);
+      padding: 2.5rem 3.5rem 2.5rem 2.5rem;
+      background-color: $white;
+      &-description {
+        @include font(1rem, normal, $pale-black, 1.6);
+        margin-bottom: .25rem;
+      }
+      &-header {
+        @include font(1.5rem, bold);
+        margin-bottom: .75rem;
+      }
+      &-education {
+        margin-bottom: 1.25rem;
+      }
+      &-campus {
+        margin-bottom: 1.25rem;
+      }
+      &-date {
+        margin-bottom: 1.25rem;
+        width: calc(50% - 1rem);
+      }
+      &-name {
+        @include flex(row, space-between, center);
+        margin-bottom: 1.25rem;
+        > * {
+          width: calc(50% - 1rem);
+        }
+      }
+      &-email {
+        margin-bottom: 2rem;
+      }
+      &-subscribe {
+        @include flex(row, flex-start, stretch);
+        margin-bottom: 2rem;
+        &-text {
+          @include font(.75rem, $color: $brownish-grey, $line-height: 1);
+          @include flex-center();
+          margin-left: .75rem;
+        }
+      }
+      &-submit {
+        align-self: flex-start;
+      }
+      &-success {
+        @include font(.75rem, 600, $emerald);
+        transition: all .2s;
+        opacity: 1;
+      }
+      &-footer-text {
+        margin-top: 2.5rem;
+        @include font(.75rem, $color: $brownish-grey, $line-height: 1.5);
+      }
+    }
+  }
+  .booking-modal-bg {
+    @include position(absolute, 0, $left:0, $width:100%, $height:100%);
+    background-color: $greyish;
+    z-index: -1;
+    > img {
+      object-fit: cover;
+      height: 20rem;
+      width: 100%;
+    }
+  }
+  .booking-modal-close {
+    @include position(absolute, 0, 0, $width: 2.75rem, $height: 2.75rem);
+    cursor: pointer;
+    padding: .75rem;
+    object-fit: contain;
+    background-color: rgba($black, .2)
   }
 }
+@media only screen and (max-width: $small-screen) {
+  .root-booking-modal {
+    padding: 0;
+    .booking-modal {
+      .booking-modal-slogan{
+        display: none;
+      }
+      .booking-modal-header {
+        font-size: 1.75rem;
+        line-height: 1.14;
+        height: 10rem;
+        padding-top: 3rem;
+        padding-left: 2.5rem;
+        margin-bottom: 0;
+      }
+      .booking-form {
+        .booking-form-date {
+          width: 100%;
+        }
+        .booking-form-name {
+          @include flex(column, flex-start, stretch);
+          margin-bottom: 0;
+          > * {
+            margin-bottom: 1.125rem;
+            width: 100%;
+          }
+        }
+      }
+    }
+    .booking-modal-bg {
+      > img {
+        height: 10rem;
+      }
+    }
+  }
+}
+
+.success-enter, .success-leave-to {
+  opacity: 0;
+  transform: translateY(-1rem);
+}
+

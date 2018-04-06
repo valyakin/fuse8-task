@@ -1,0 +1,13 @@
+<div class="select-item" @click="shown=!shown" tabindex="100" @blur="shown=false">
+  <div class="select-item-label" :class="{'not-empty': currentSelection}">{{label}}</div>
+  <div class="select-item-selection">{{currentSelection}}</div>
+  <transition name="fade">
+    <select-dropdown class="select-item-dropdown" v-if="shown" @select="select" :options="options"></select-dropdown>
+  </transition>
+  <img class="select-item-arrow" :class="{'with-dropdown' : shown}" src="static/img/icon-arrow.png">
+  <transition name="error">
+    <span class="select-item-error" v-if="error">{{error}}</span>
+  </transition>
+  <img v-if="error" class="select-item-state-icon" src="static/img/icon-invalid.png">
+  <img v-if="valid" class="select-item-state-icon" src="static/img/icon-valid.png">
+</div>

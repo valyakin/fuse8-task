@@ -1,3 +1,69 @@
-  <div class="base-modal">
+<div class="root-booking-modal">
+  <div class="booking-modal">
+    <div class="booking-modal-slogan">Come and say hello</div>
+    <div class="booking-modal-header">Register for an<br>Open Day</div>
+    <div class="booking-form">
+      <div class="booking-form-description">Open Days are the perfect opportunity to get to know us, visit our campus, see acccommodation, meet academics, and get the low-down on the Essex student life.</div>
+      <div class="booking-form-header">Book your place</div>
+      <select-item class="booking-form-education"
+        :label="labelEducation"
+        :options="optionsEducation"
+        v-model="education"
+        @input="$v.education.$touch()"
+        :error="$v.education && errorRequired($v.education)"
+        :valid="$v.education && valid($v.education)"
+      ></select-item>
+      <select-item class="booking-form-campus"
+        :label="labelCampus"
+        :options="optionsCampus"
+        v-model="campus"
+        @input="$v.campus.$touch()"
+        :error="$v.campus && errorRequired($v.campus)"
+        :valid="$v.campus && valid($v.campus)"
+      ></select-item>
+      <date-item required class="booking-form-date"
+        label="Date"
+        v-model="date"
+        @input="$v.date.$touch()"
+        :error="$v.date && errorRequired($v.date)"
+        :valid="$v.date && valid($v.date)"
+      ></date-item>
+      <div class="booking-form-name">
+        <input-item required class="booking-form-name-first"
+          label="First Name"
+          v-model="firstName"
+          @input="$v.firstName.$touch()"
+          :error="$v.firstName && errorName($v.firstName)"
+          :valid="$v.firstName && valid($v.firstName)"
+        ></input-item>
+        <input-item required class="booking-form-name-last"
+          label="Last Name"
+          v-model="lastName"
+          @input="$v.lastName.$touch()"
+          :error="$v.lastName && errorName($v.lastName)"
+          :valid="$v.lastName && valid($v.lastName)"
+        ></input-item>
+      </div>
+      <input-item required class="booking-form-email"
+        label="Email Address"
+        v-model="email"
+        @input="$v.email.$touch()"
+        :error="$v.email && errorEmail($v.email)"
+        :valid="$v.email && valid($v.email)"
+      ></input-item>
+      <div class="booking-form-subscribe">
+        <checkbox-item v-model="subscribeCheckbox"></checkbox-item>
+        <div class="booking-form-subscribe-text">I would like to receive email updates from the University</div>
+      </div>
+      <button-item class="booking-form-submit" @click="submit($v)">Make A Booking</button-item>
+      <transition name="success">
+        <span v-if="success" class="booking-form-success">Success!</span>
+      </transition>
+      <div class="booking-form-footer-text">The information provided by you will be held by the University of Essex in accordance with the University's Data protection Policy and may be used for the University's marketing purposes. On occasion we may contact you to advertise events with information relevant to student recruitment. If you do not wish to receive this information, please select the opt out function which can be found at the foot of your confirmation email. You will receive this email within 24 hours of registering.</div>
+    </div>
+  </div>
+  <div class="booking-modal-bg">
     <img src="/static/img/header.png">
   </div>
+  <img class="booking-modal-close" src="static/img/icon-cross.png" @click="closeModal">
+</div>

@@ -1,0 +1,44 @@
+@import '~src/styles/mixins';
+@import '~src/styles/variables';
+
+.input-item {
+  position: relative;
+  input {
+    @include font(1rem, $color: $pale-black);
+    @include box($greyish);
+    padding-top: 2.25rem;
+    cursor: text;
+    color: $pale-black;
+    background-color: $white;
+  }
+  input:focus + label, label.not-empty  {
+    transform: translateY(-.75rem);
+    font-size: .75rem;
+  }
+  label {
+    @include position(absolute, 0, 0, 0, 0);
+    @include font(1rem, 800, $grey, 1rem);
+    @include flex(column, center, flex-start);
+    margin-left: calc(1.25rem + 3px);
+    user-select: none;
+    transition: all .2s;
+  }
+  &-error {
+    @include font(.75rem, 600, $pale-red);
+    @include position(absolute, 100%, $left: 0);
+    transition: all .2s;
+    opacity: 1;
+  }
+  &-state-icon {
+    @include position(absolute, 0, -1.5rem, 0);
+    margin: auto;
+    width: 1.125rem;
+    height: 1.125rem;
+    object-fit: contain;
+  }
+}
+
+.error-enter, .error-leave-to {
+  opacity: 0;
+  transform: translateY(-1rem);
+}

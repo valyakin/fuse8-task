@@ -1,0 +1,6 @@
+<label :for="cboxId">
+  <div class="checkbox-item">
+    <img src="static/img/icon-tick.png" v-if="value">
+  </div>
+  <input :id="cboxId" type="checkbox" v-model="checked" @change="$emit('input', checked)">
+</label>

@@ -1,1 +1,5 @@
-@import '~src/styles/colors'
+@import '~src/styles/colors';
+
+$max-width: 1024px;
+$min-width: 320px;
+$small-screen: 768px;

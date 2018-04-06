@@ -76,6 +76,9 @@
   }
   .booking-modal-bg {
     @include position(absolute, 0, $left:0, $width:100%, $height:100%);
+    @include ie-only() {
+      height: auto;
+    }
     background-color: $greyish;
     z-index: -1;
     > img {

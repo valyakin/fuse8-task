@@ -1,6 +1,6 @@
 {
-  "name": "fuse8-task",
-  "description": "A single modal form example",
+  "name": "vuejs-exmaple-modalform",
+  "description": "Vuejs example project with modal form demonstration",
   "version": "1.0.0",
   "author": "valyakin <valyakin@gmail.com>",
   "license": "MIT",

@@ -1,6 +1,7 @@
 # vuetest
 
-> A Vue.js project
+> A Vue.js project with example modal form
+[Live Demonstration](https://valyakin.github.io/vue-example-modalform)
 
 ## Build Setup
 
